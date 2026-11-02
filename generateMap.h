@@ -7,7 +7,6 @@
 #include <vector>
 #include "vec2.h"
 
-std::vector<vec2> generateMap(const double &centerX, const double &centerY, const unsigned int &count,
-                              const double &minR, const double &maxR);
+std::vector<vec2> generateMap(const unsigned int &count, const double &minR, const double &maxR);
 
 #endif //AICARS_GENERATEMAP_H

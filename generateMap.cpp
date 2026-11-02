@@ -6,8 +6,7 @@
 #include <random>
 #include <cmath>
 
-std::vector<vec2> generateMap(const double &centerX, const double &centerY, const unsigned int &count,
-                              const double &minR, const double &maxR) {
+std::vector<vec2> generateMap(const unsigned int &count, const double &minR, const double &maxR) {
     std::random_device rd;
     std::mt19937 rng(rd());
     std::uniform_real_distribution<double> RDist(minR, maxR);
@@ -18,7 +17,7 @@ std::vector<vec2> generateMap(const double &centerX, const double &centerY, cons
     for (unsigned int i = 0; i < count; i++) {
         double angle = 2.0 * M_PI * i / count;
         double r = RDist(rng);
-        map.push_back({centerX + r * std::cos(angle), centerY + r * std::sin(angle)});
+        map.push_back({r * std::cos(angle), r * std::sin(angle)});
     }
 
     return map;

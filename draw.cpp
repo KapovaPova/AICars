@@ -4,21 +4,24 @@
 
 #include "draw.h"
 #include <raylib.h>
+#include <array>
 
-void draw(const std::vector<vec2> &map, const std::vector<Car> &cars, const int &window_width, const int &window_height) {
+void draw(const std::array<std::vector<vec2>, 2> &map, const std::vector<Car> &cars,
+          const int &window_width, const int &window_height) {
     InitWindow(window_width, window_height, "AICars");
     SetTargetFPS(60);
 
     while (!WindowShouldClose()) {
         BeginDrawing();
         ClearBackground(BLACK);
-
-        for (unsigned int i = 0; i < map.size(); i++) {
-            const vec2 &point1 = map[i];
-            const vec2 &point2 = map[(i + 1) % map.size()];
-            DrawLine((int) window_width / 2 + (int) point1.x, (int) window_height / 2 + (int) point1.y,
-                     (int) window_width / 2 + (int) point2.x, (int) window_height / 2 + (int) point2.y,
-                     WHITE);
+        for (const std::vector<vec2> &entry: map) {
+            for (unsigned int i = 0; i < entry.size(); i++) {
+                const vec2 &point1 = entry[i];
+                const vec2 &point2 = entry[(i + 1) % entry.size()];
+                DrawLine((int) window_width / 2 + (int) point1.x, (int) window_height / 2 + (int) point1.y,
+                         (int) window_width / 2 + (int) point2.x, (int) window_height / 2 + (int) point2.y,
+                         WHITE);
+            }
         }
 
         for (const Car &car: cars) {

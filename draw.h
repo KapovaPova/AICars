@@ -8,6 +8,7 @@
 #include "vec2.h"
 #include "car.h"
 
-void draw(const std::vector<vec2> &map, const std::vector<Car> &cars, const int &window_width, const int &window_height);
+void draw(const std::array<std::vector<vec2>, 2> &map, const std::vector<Car> &cars,
+          const int &window_width, const int &window_height);
 
 #endif //AICARS_DRAW_H
