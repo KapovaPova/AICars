@@ -9,8 +9,8 @@
 
 struct Car {
     vec2 coordinates;
-    unsigned int heading = 0;
-    unsigned int speed = 0;
+    double heading = 0;
+    double speed = 0;
     std::array<double, 5> wallDist = {};
 };
 
