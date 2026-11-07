@@ -9,7 +9,7 @@
 unsigned int AI::layerSize(const unsigned int& layer) {
     if (layer == 0) return 6;
     if (layer == layers + 1) return 2;
-    return layers;
+    return neurons;
 }
 
 AI::AI(const unsigned int &layers, const unsigned int &neurons) : layers(layers), neurons(neurons) {
